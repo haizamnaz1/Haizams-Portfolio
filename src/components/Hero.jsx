@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import cvImage from '../assets/CV.png';
 
 const Hero = () => {
   return (
@@ -23,19 +24,19 @@ const Hero = () => {
           
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-number">4+</span>
+              <span className="stat-number">6+</span>
               <span className="stat-label">Projects</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">HND</span>
-              <span className="stat-label">Student</span>
+              <span className="stat-number">SE</span>
+              <span className="stat-label">Undergrad</span>
             </div>
           </div>
         </div>
 
         <div className="hero-cta">
           <a href="#projects" className="btn-primary" style={{display: 'inline-block', textDecoration: 'none'}}>VIEW MY WORK ↗</a>
-          <a href="#" className="btn-secondary" style={{display: 'inline-block', textDecoration: 'none'}}>DOWNLOAD CV</a>
+          <a href={cvImage} download="Haizam_Nazreen_CV.png" className="btn-secondary" style={{display: 'inline-block', textDecoration: 'none'}}>DOWNLOAD CV</a>
         </div>
       </div>
     </section>

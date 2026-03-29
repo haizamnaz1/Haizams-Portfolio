@@ -5,6 +5,8 @@ import mirasImg from '../assets/project showcase/miras hero.png';
 import skillshareImg from '../assets/project showcase/skillshare hero.png';
 import coreacsentImg from '../assets/project showcase/coreacsent hero.png';
 import gymsiteImg from '../assets/project showcase/gymsite hero.png';
+import everlaneImg from '../assets/project showcase/everlane hero.png';
+import miraRedefinedImg from '../assets/project showcase/mira but redifned hero.png';
 
 const Projects = () => {
   const projectsData = [
@@ -39,6 +41,22 @@ const Projects = () => {
       desc: "Marketing website optimized for SEO and performance for an independent agency.",
       tags: ["WordPress", "SEO", "Performance"],
       image: gymsiteImg
+    },
+    {
+      badge: "UI/UX DESIGN",
+      badgeColor: "purple",
+      title: "Everlane Redesign",
+      desc: "Elevating the e-commerce experience with minimalist aesthetics and improved UX.",
+      tags: ["Figma", "Prototyping", "UX"],
+      image: everlaneImg
+    },
+    {
+      badge: "WEB DEVELOPMENT",
+      badgeColor: "pink",
+      title: "Mira Redefined",
+      desc: "A complete structural overhaul of the Mira brand platform, optimizing for global scale and sleek transitions.",
+      tags: ["React", "Performance", "Scale"],
+      image: miraRedefinedImg
     }
   ];
 
@@ -78,6 +96,17 @@ const Projects = () => {
               </div>
             </div>
           ))}
+          <div className="project-card more-card">
+            <div className="more-card-content">
+              <h3>Many more to come!</h3>
+              <p>I'm continually working on new ideas, studying, and experimenting.</p>
+              <div className="dots-container">
+                <span className="dot"></span>
+                <span className="dot"></span>
+                <span className="dot"></span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
