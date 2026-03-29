@@ -71,7 +71,7 @@ const Projects = () => {
         
         <div className="projects-grid">
           {projectsData.map((project, index) => (
-            <div key={index} className="project-card">
+            <div key={index} className="project-card hover-glow">
               <img src={project.image} alt={project.title} className="project-image" />
               
               <div className="project-overlay">
@@ -96,7 +96,7 @@ const Projects = () => {
               </div>
             </div>
           ))}
-          <div className="project-card more-card">
+          <div className="project-card more-card hover-glow">
             <div className="more-card-content">
               <h3>Many more to come!</h3>
               <p>I'm continually working on new ideas, studying, and experimenting.</p>

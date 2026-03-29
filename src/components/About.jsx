@@ -33,7 +33,7 @@ const About = () => {
           </div>
           
           <div className="about-cards">
-            <div className="card education-card">
+            <div className="card education-card hover-glow">
               <div className="card-header">
                 <h3>Education</h3>
               </div>

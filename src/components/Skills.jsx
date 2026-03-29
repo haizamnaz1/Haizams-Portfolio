@@ -8,36 +8,42 @@ const Skills = () => {
       name: "Figma",
       tools: "Web Design, Interactive Prototyping, Wireframing",
       color: "pink",
+      logo: "figma logo.png"
     },
     {
       category: "DEVELOPMENT",
       name: "VS Code",
       tools: "HTML/CSS, JavaScript, React, Next.js",
       color: "purple",
+      logo: "vscode logo.png"
     },
     {
       category: "TOOLS",
       name: "Git & GitHub",
       tools: "Version Control, Collaboration, CI/CD",
       color: "yellow",
+      logo: "github logo.png"
     },
     {
       category: "CMS",
       name: "WordPress",
       tools: "Custom Themes, Elementor, PHP Basics",
       color: "green",
+      logo: "wordpress logo.png"
     },
     {
       category: "DESIGN",
       name: "Canva",
       tools: "Graphic Design, Social Media Graphics",
       color: "red",
+      logo: "canva logo.png"
     },
     {
       category: "AI",
       name: "AI Tools",
       tools: "ChatGPT, Midjourney, Claude",
       color: "cyan",
+      logo: "chatgpt logo.png"
     }
   ];
 
@@ -56,9 +62,15 @@ const Skills = () => {
         
         <div className="skills-grid">
           {skillsData.map((skill, index) => (
-            <div key={index} className={`skill-card bg-${skill.color}`}>
+            <div 
+              key={index} 
+              className={`skill-card bg-${skill.color} hover-glow ${index % 2 === 0 ? 'float-slow' : 'float-mid'}`}
+            >
               <div className="skill-category">{skill.category}</div>
-              <h3 className="skill-name">{skill.name}</h3>
+              <div className="skill-header">
+                <h3 className="skill-name">{skill.name}</h3>
+                <img src={`/logos/${skill.logo}`} alt={skill.name} className="skill-logo-img" />
+              </div>
               <div className="skill-divider"></div>
               <p className="skill-tools">{skill.tools}</p>
               <div className="skill-arrow">↗</div>

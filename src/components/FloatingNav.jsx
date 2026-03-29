@@ -3,8 +3,8 @@ import './FloatingNav.css';
 
 const sections = [
   { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Work' },
   { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Work' },
   { id: 'contact', label: 'Get in Touch' }
 ];
 

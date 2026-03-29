@@ -37,11 +37,24 @@
   opacity: 0.8;
 }
 
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
 .skill-name {
   font-size: 24px;
   font-weight: 900;
-  margin-bottom: 16px;
   color: var(--text-main);
+  margin-bottom: 0;
+}
+
+.skill-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 .skill-divider {

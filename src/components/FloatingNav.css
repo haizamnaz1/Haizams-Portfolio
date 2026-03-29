@@ -18,22 +18,26 @@
 
 .nav-label {
   position: absolute;
-  right: 24px;
+  right: 40px;
   opacity: 0;
   transform: translateX(10px);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   white-space: nowrap;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-main);
   pointer-events: none;
+  background-color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
 .nav-dot {
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background-color: #d1d5db;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -61,8 +65,8 @@
 
 .nav-dot.active {
   background-color: var(--text-main);
-  transform: scale(1.5);
-  box-shadow: 0 0 0 6px rgba(17, 17, 17, 0.05); /* Subtle ring effect */
+  transform: scale(1.4);
+  box-shadow: 0 0 0 8px rgba(17, 17, 17, 0.05); /* Subtle ring effect */
 }
 
 @media (max-width: 900px) {
