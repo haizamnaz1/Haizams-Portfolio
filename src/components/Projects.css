@@ -4,108 +4,118 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 32px;
 }
 
 .project-card {
-  background-color: #fafafa;
-  border-radius: 16px;
-  padding: 40px 32px;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-  border: 1px solid #f0f0f0;
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  aspect-ratio: 3/4;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  cursor: pointer;
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
-  background-color: var(--bg-card);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.project-header {
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* Gradient covers top and bottom text areas */
+.project-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.2) 65%, rgba(0,0,0,0.8) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
+  padding: 32px;
 }
 
-.project-badge {
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 4px;
-  letter-spacing: 0.5px;
+.project-card:hover .project-overlay {
+  opacity: 1;
 }
 
-.badge-pink { color: var(--accent-red); background-color: var(--skill-pink); }
-.badge-purple { color: var(--accent-purple); background-color: var(--skill-purple); }
-.badge-cyan { color: #0284c7; background-color: var(--skill-cyan); }
-.badge-green { color: var(--accent-green); background-color: var(--skill-green); }
-
-.project-link-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  font-size: 12px;
-  font-weight: bold;
+.project-overlay-top {
+  transform: translateY(-20px);
+  transition: transform 0.4s ease;
 }
 
-.project-title {
+.project-card:hover .project-overlay-top {
+  transform: translateY(0);
+}
+
+.project-title-overlay {
+  color: #fff;
   font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 12px;
-  color: var(--text-main);
+  font-weight: 700;
+  margin: 0 0 12px 0;
 }
 
-.project-desc {
+.project-desc-overlay {
+  color: rgba(255, 255, 255, 0.8);
   font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 32px;
-  flex-grow: 1;
+  line-height: 1.5;
+  margin: 0;
 }
 
-.project-footer {
+.project-overlay-bottom {
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+
+.project-card:hover .project-overlay-bottom {
+  transform: translateY(0);
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  flex: 1;
+  align-items: center;
 }
 
-.tag {
+.tag-overlay {
+  background: rgba(255, 255, 255, 0.75);
+  color: #111;
+  padding: 8px 16px;
+  border-radius: 30px;
   font-size: 11px;
-  font-weight: 600;
-  color: var(--text-main);
-  background-color: #ffffff;
-  border: 1px solid #e5e5e5;
-  padding: 6px 12px;
-  border-radius: 20px;
+  font-weight: 700;
 }
 
-.project-icon {
-  font-size: 48px;
-  line-height: 1;
-  background-color: white;
-  width: 64px;
-  height: 64px;
+.project-link-icon-overlay {
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  margin-left: 16px; /* Space between tags and icon */
+}
+
+.project-card:hover .project-link-icon-overlay {
+  transform: translate(4px, 4px); /* Moves icon down-right like arrow direction */
 }
 
 @media (max-width: 768px) {

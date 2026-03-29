@@ -1,6 +1,11 @@
 import React from 'react';
 import './Projects.css';
 
+import mirasImg from '../assets/project showcase/miras hero.png';
+import skillshareImg from '../assets/project showcase/skillshare hero.png';
+import coreacsentImg from '../assets/project showcase/coreacsent hero.png';
+import gymsiteImg from '../assets/project showcase/gymsite hero.png';
+
 const Projects = () => {
   const projectsData = [
     {
@@ -9,7 +14,7 @@ const Projects = () => {
       title: "Mira's Collection",
       desc: "An elegant e-commerce platform designed for a premium clothing brand. Built with modern web technologies.",
       tags: ["React", "Stripe", "Figma"],
-      icon: ""
+      image: mirasImg
     },
     {
       badge: "UI/UX DESIGN",
@@ -17,7 +22,7 @@ const Projects = () => {
       title: "SkillShare Platform",
       desc: "Concept redesign for an online learning platform, focusing on user engagement and accessibility.",
       tags: ["UI Design", "Figma", "Research"],
-      icon: ""
+      image: skillshareImg
     },
     {
       badge: "FULLSTACK",
@@ -25,7 +30,7 @@ const Projects = () => {
       title: "CoreAscent",
       desc: "A comprehensive dashboard application for managing internal employee resources and goals.",
       tags: ["Next.js", "MySQL", "Tailwind"],
-      icon: ""
+      image: coreacsentImg
     },
     {
       badge: "WEB DEVELOPMENT",
@@ -33,12 +38,12 @@ const Projects = () => {
       title: "Strive Beam SEO",
       desc: "Marketing website optimized for SEO and performance for an independent agency.",
       tags: ["WordPress", "SEO", "Performance"],
-      icon: ""
+      image: gymsiteImg
     }
   ];
 
   return (
-    <section id="work" className="projects section-padding">
+    <section id="projects" className="projects section-padding">
       <div className="container">
         <span className="section-badge">MY WORK</span>
         
@@ -49,22 +54,27 @@ const Projects = () => {
         <div className="projects-grid">
           {projectsData.map((project, index) => (
             <div key={index} className="project-card">
-              <div className="project-header">
-                <span className={`project-badge badge-${project.badgeColor}`}>
-                  {project.badge}
-                </span>
-                <div className="project-link-icon">↗</div>
-              </div>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-desc">{project.desc}</p>
+              <img src={project.image} alt={project.title} className="project-image" />
               
-              <div className="project-footer">
-                <div className="project-tags">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="tag">{tag}</span>
-                  ))}
+              <div className="project-overlay">
+                <div className="project-overlay-top">
+                  <h3 className="project-title-overlay">{project.title}</h3>
+                  <p className="project-desc-overlay">{project.desc}</p>
                 </div>
-                <div className="project-icon">{project.icon}</div>
+                
+                <div className="project-overlay-bottom">
+                  <div className="project-tags">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="tag-overlay">{tag}</span>
+                    ))}
+                  </div>
+                  <div className="project-link-icon-overlay">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

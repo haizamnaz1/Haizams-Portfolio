@@ -34,8 +34,8 @@ const Hero = () => {
         </div>
 
         <div className="hero-cta">
-          <button className="btn-primary">VIEW MY WORK ↗</button>
-          <button className="btn-secondary">DOWNLOAD CV</button>
+          <a href="#projects" className="btn-primary" style={{display: 'inline-block', textDecoration: 'none'}}>VIEW MY WORK ↗</a>
+          <a href="#" className="btn-secondary" style={{display: 'inline-block', textDecoration: 'none'}}>DOWNLOAD CV</a>
         </div>
       </div>
     </section>
