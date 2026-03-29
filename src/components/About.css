@@ -117,33 +117,70 @@
 
 /* Purple Card overrides */
 .purple-card {
-  background-color: var(--accent-purple);
-  color: var(--text-light);
+  background-color: #9361FF;
+  color: #ffffff;
   border: none;
+  border-radius: 12px;
 }
 
 .purple-card .card-meta, 
 .purple-card h3,
 .purple-card h4 {
-  color: var(--text-light);
+  color: #ffffff;
+}
+
+.purple-card .card-header {
+  margin-bottom: 24px;
+}
+
+.purple-card .card-header h3 {
+  font-size: 18px;
 }
 
 .purple-card .card-header h3::before {
-  content: '';
+  display: none;
+}
+
+.purple-card .card-body h4 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.purple-card .card-body ul {
+  padding-left: 20px;
+}
+
+.purple-card .card-body li {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 6px;
 }
 
 /* Yellow Card overrides */
 .yellow-card {
-  background-color: var(--accent-yellow);
+  background-color: #FACC15;
   border: none;
+  border-radius: 12px;
+  color: #111111;
 }
 
-.contact-detail {
-  font-size: 14px;
+.yellow-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 16px;
+}
+
+.yellow-card .contact-detail {
+  font-size: 15px;
   font-weight: 600;
-  margin: 8px 0;
+  margin: 12px 0;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-
 @media (max-width: 900px) {
   .about-grid {
     flex-direction: column;
