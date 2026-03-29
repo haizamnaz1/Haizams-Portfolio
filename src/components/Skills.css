@@ -1,0 +1,87 @@
+.text-cyan {
+  color: var(--accent-cyan);
+}
+
+.skills-desc {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.skill-card {
+  padding: 32px 24px;
+  border-radius: 12px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+}
+
+.skill-category {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: var(--text-main);
+  opacity: 0.8;
+}
+
+.skill-name {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 16px;
+  color: var(--text-main);
+}
+
+.skill-divider {
+  height: 2px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.1);
+  margin-bottom: 16px;
+}
+
+.skill-tools {
+  font-size: 13px;
+  color: var(--text-main);
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.skill-arrow {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Background Colors */
+.bg-pink { background-color: var(--skill-pink); }
+.bg-purple { background-color: var(--skill-purple); }
+.bg-yellow { background-color: var(--skill-yellow); }
+.bg-green { background-color: var(--skill-green); }
+.bg-cyan { background-color: var(--skill-cyan); }
+.bg-red { background-color: var(--skill-red); }
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}

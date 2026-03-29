@@ -1,0 +1,151 @@
+.section-title {
+  font-size: clamp(40px, 8vw, 80px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 48px;
+  color: var(--text-main);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--accent-purple), var(--accent-red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.about-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-content p {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.margin-top {
+  margin-top: 16px;
+}
+
+.about-quote {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 18px;
+  margin: 32px 0;
+  color: var(--text-main);
+}
+
+.about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  background-color: var(--bg-badge);
+  color: var(--text-light);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.about-cards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  padding: 24px;
+  border-radius: 12px;
+  background-color: var(--bg-card);
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.card-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-header h3::before {
+  content: '';
+}
+
+.card-body h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  margin-top: 12px;
+}
+
+.card-body h4:first-child {
+  margin-top: 0;
+}
+
+.card-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.card-body ul {
+  padding-left: 16px;
+  list-style-type: disc;
+}
+
+.card-body li {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+/* Purple Card overrides */
+.purple-card {
+  background-color: var(--accent-purple);
+  color: var(--text-light);
+  border: none;
+}
+
+.purple-card .card-meta, 
+.purple-card h3,
+.purple-card h4 {
+  color: var(--text-light);
+}
+
+.purple-card .card-header h3::before {
+  content: '';
+}
+
+/* Yellow Card overrides */
+.yellow-card {
+  background-color: var(--accent-yellow);
+  border: none;
+}
+
+.contact-detail {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    flex-direction: column;
+  }
+}
