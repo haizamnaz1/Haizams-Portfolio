@@ -69,8 +69,10 @@
 .contact-cta {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 16px;
   margin-bottom: 48px;
+  flex-wrap: wrap;
 }
 
 .btn-contact-primary, .btn-contact-secondary {
@@ -81,6 +83,9 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 .btn-contact-primary {
@@ -90,18 +95,73 @@
 
 .btn-contact-primary:hover {
   background-color: #e5e5e5;
-  transform: translateY(-2px);
 }
 
 .btn-contact-secondary {
   background-color: transparent;
   color: var(--text-light);
-  border: 1px solid var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-contact-secondary:hover {
-  background-color: rgba(255,255,255,0.1);
-  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--text-light);
+}
+
+.btn-social-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-social-icon:hover {
+  background-color: var(--text-light);
+  color: var(--bg-dark);
+  border-color: var(--text-light);
+}
+
+.contact-socials {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.social-link {
+  color: var(--text-light);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  padding: 8px 0;
+  position: relative;
+}
+
+.social-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--text-light);
+  transition: width 0.3s ease;
+}
+
+.social-link:hover {
+  opacity: 1;
+}
+
+.social-link:hover::after {
+  width: 100%;
 }
 
 .contact-email {
@@ -110,14 +170,11 @@
 
 .contact-email a {
   color: var(--text-light);
-  font-size: 20px;
+  font-size: clamp(16px, 4vw, 24px);
   font-weight: 800;
   letter-spacing: 0.5px;
+  text-decoration: none;
   transition: opacity 0.3s ease;
-}
-
-.contact-email a:hover {
-  opacity: 0.8;
 }
 
 @media (max-width: 768px) {

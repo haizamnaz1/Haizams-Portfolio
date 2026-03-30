@@ -8,14 +8,14 @@ const Experience = () => {
       title: "Intern Web Developer",
       company: "StriveBeam",
       date: "Jan 2025 - Jun 2025",
-      cert: "/certificates/strivebeam-internship.pdf",
+      cert: "/strivebeam certificate.pdf",
       bullets: [
         "Collaborated with the team to research and define effective color themes for client websites.",
         "Conducted SEO research and implemented on-page optimizations to improve visibility and performance."
       ]
     },
     {
-      title: "Hire me to fill this spot! 😉",
+      title: "Hire me to fill this spot!",
       company: "Your Company Name Here",
       date: "Soon, hopefully?",
       cert: null,

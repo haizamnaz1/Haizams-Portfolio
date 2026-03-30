@@ -14,18 +14,29 @@ const Projects = () => {
     {
       badge: "WEB DEVELOPMENT",
       badgeColor: "pink",
-      title: "Mira's Collection",
-      desc: "An elegant e-commerce platform designed for a premium clothing brand. Built with modern web technologies.",
-      tags: ["React", "Stripe", "Figma"],
-      image: mirasImg
+      title: "Mira Redefine", // Mira Redefined/Redesign
+      desc: "A complete structural overhaul of the Mira brand platform, optimizing for global scale and sleek transitions.",
+      tags: ["React", "Performance", "Scale"],
+      image: miraRedefinedImg,
+      link: "https://dribbble.com/shots/27226126-MIRA-COLLECTION-REDISGNED"
+    },
+    {
+      badge: "UI/UX DESIGN",
+      badgeColor: "pink",
+      title: "Mira's Dream",
+      desc: "An elegant e-commerce platform designed for a premium makeup brand.",
+      tags: ["UI Design", "Figma", "Research"],
+      image: mirasImg,
+      link: "https://dribbble.com/shots/27226123-Mira-s-Dream-a-premium-make-up-brand"
     },
     {
       badge: "UI/UX DESIGN",
       badgeColor: "purple",
       title: "SkillShare Platform",
       desc: "Concept redesign for an online learning platform, focusing on user engagement and accessibility.",
-      tags: ["UI Design", "Figma", "Research"],
-      image: skillshareImg
+      tags: ["React", "Node.js", "Figma"],
+      image: skillshareImg,
+      link: "https://github.com/haizamnaz1/skillShare-finalized"
     },
     {
       badge: "FULLSTACK",
@@ -33,15 +44,17 @@ const Projects = () => {
       title: "CoreAscent",
       desc: "A comprehensive dashboard application for managing internal employee resources and goals.",
       tags: ["Next.js", "MySQL", "Tailwind"],
-      image: coreacsentImg
+      image: coreacsentImg,
+      link: "https://github.com/sahl-2003/CoreAscent_Web"
     },
     {
       badge: "WEB DEVELOPMENT",
       badgeColor: "green",
-      title: "Strive Beam SEO",
-      desc: "Marketing website optimized for SEO and performance for an independent agency.",
+      title: "Gymniums SEO",
+      desc: "Marketing website optimized for SEO and performance for an independent gym brand.",
       tags: ["WordPress", "SEO", "Performance"],
-      image: gymsiteImg
+      image: gymsiteImg,
+      link: "https://dribbble.com/shots/27229100-gymniums-a-gym-website"
     },
     {
       badge: "UI/UX DESIGN",
@@ -49,15 +62,8 @@ const Projects = () => {
       title: "Everlane Redesign",
       desc: "Elevating the e-commerce experience with minimalist aesthetics and improved UX.",
       tags: ["Figma", "Prototyping", "UX"],
-      image: everlaneImg
-    },
-    {
-      badge: "WEB DEVELOPMENT",
-      badgeColor: "pink",
-      title: "Mira Redefined",
-      desc: "A complete structural overhaul of the Mira brand platform, optimizing for global scale and sleek transitions.",
-      tags: ["React", "Performance", "Scale"],
-      image: miraRedefinedImg
+      image: everlaneImg,
+      link: "https://dribbble.com/shots/27229108-EVERLANE-redesigned"
     }
   ];
 
@@ -115,6 +121,7 @@ const Projects = () => {
               className="project-card hover-glow"
               variants={cardVariants}
               whileHover={{ y: -10 }}
+              onClick={() => project.link && window.open(project.link, '_blank')}
             >
               <img src={project.image} alt={project.title} className="project-image" />
               
