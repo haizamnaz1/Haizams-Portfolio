@@ -4,6 +4,12 @@
   background: transparent;
 }
 
+@media (max-width: 600px) {
+  .navbar {
+    padding: 10px 0;
+  }
+}
+
 .navbar-container {
   display: flex;
   justify-content: space-between;

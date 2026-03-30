@@ -149,12 +149,15 @@
 }
 
 .experience-bullets li::before {
-  content: '→';
+  content: '';
   position: absolute;
   left: 0;
-  color: var(--accent-purple);
-  font-size: 12px;
-  top: 2px;
+  width: 8px;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b5cf6' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 6px;
 }
 
 .experience-item:last-child .experience-bullets li::before {
@@ -163,11 +166,52 @@
 
 @media (max-width: 600px) {
   .experience-list {
-    padding-left: 36px;
+    padding-left: 16px;
+    margin-left: 4px;
   }
+
+  .experience-list::before {
+    left: 4px;
+    width: 1px;
+    opacity: 0.5;
+  }
+
+  .experience-item {
+    padding-bottom: 28px;
+    padding-left: 12px;
+  }
+
+  .experience-item::before {
+    left: -17px;
+    width: 10px;
+    height: 10px;
+    top: 6px;
+  }
+
   .experience-header {
     flex-direction: column;
-    gap: 10px;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .experience-title {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+  .experience-company {
+    font-size: 13px;
+  }
+
+  .experience-bullets li {
+    font-size: 13px;
+    line-height: 1.5;
+    padding-left: 16px;
+  }
+
+  .experience-bullets li::before {
+    width: 6px;
+    height: 6px;
   }
 }
 

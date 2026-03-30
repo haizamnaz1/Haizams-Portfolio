@@ -178,9 +178,27 @@
 }
 
 @media (max-width: 768px) {
+  .contact-title {
+    font-size: clamp(40px, 12vw, 80px);
+    line-height: 1;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+  }
+}
+
+@media (max-width: 600px) {
   .contact-cta {
-    flex-direction: column;
     width: 100%;
-    max-width: 300px;
+    gap: 12px;
+  }
+  
+  .btn-contact-primary, .btn-contact-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .btn-social-icon {
+    width: 48px;
+    height: 48px;
   }
 }

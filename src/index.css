@@ -236,3 +236,23 @@ button {
   transition: color 0.3s ease;
 }
 
+/* ── Mobile Overrides ── */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-links {
+    display: none;
+  }
+  
+  .section-badge {
+    margin-bottom: 16px;
+  }
+}

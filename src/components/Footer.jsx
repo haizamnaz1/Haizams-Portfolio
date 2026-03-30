@@ -6,12 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container footer-container">
-        <div className="footer-left">
-          <div className="footer-logo">HAIZAM NAZREEN</div>
-          <p className="copyright">© 2025 All rights reserved.</p>
-        </div>
-        
-        <div className="footer-right">
+        <div className="footer-top">
           <Magnetic>
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
@@ -24,7 +19,17 @@ const Footer = () => {
               </svg>
             </button>
           </Magnetic>
-          <p>Made by myself</p>
+        </div>
+        
+        <div className="footer-bottom">
+          <div className="footer-left">
+            <div className="footer-logo">HAIZAM NAZREEN</div>
+            <p className="copyright">© 2025 All rights reserved.</p>
+          </div>
+          
+          <div className="footer-right">
+            <p>Made by myself</p>
+          </div>
         </div>
       </div>
     </footer>

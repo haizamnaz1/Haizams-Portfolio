@@ -76,7 +76,13 @@ const Hero = () => {
 
         <motion.div className="hero-cta" variants={fadeIn} style={{ display: 'flex', gap: '16px' }}>
           <Magnetic>
-            <a href="#projects" className="btn-primary" style={{display: 'inline-block', textDecoration: 'none'}}>VIEW MY WORK ↗</a>
+            <a href="#projects" className="btn-primary" style={{display: 'inline-flex', alignItems: 'center', textDecoration: 'none'}}>
+              VIEW MY WORK 
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft: '8px'}}>
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
           </Magnetic>
           <Magnetic>
             <a href={cvImage} download="Haizam_Nazreen_CV.png" className="btn-secondary" style={{display: 'inline-block', textDecoration: 'none'}}>DOWNLOAD CV</a>
