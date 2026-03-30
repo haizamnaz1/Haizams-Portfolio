@@ -10,90 +10,131 @@
   line-height: 1.6;
 }
 
+/* ── Bento Grid ── */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
+/* ── Base Skill Card ── */
 .skill-card {
-  padding: 32px 24px;
-  border-radius: 12px;
   position: relative;
-  transition: transform 0.3s ease;
+  padding: 28px 24px 24px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: default;
+  transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
+              box-shadow 0.35s ease;
 }
 
 .skill-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
 }
 
+/* ── Noise texture overlay for depth ── */
+.skill-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.4;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ── Category label ── */
 .skill-category {
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  opacity: 0.55;
   color: var(--text-main);
-  opacity: 0.8;
 }
 
+/* ── Header row ── */
 .skill-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  gap: 8px;
 }
 
 .skill-name {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 900;
+  line-height: 1;
   color: var(--text-main);
-  margin-bottom: 0;
+  letter-spacing: -0.5px;
 }
 
 .skill-logo-img {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
+/* ── Divider ── */
 .skill-divider {
-  height: 2px;
+  height: 1px;
   width: 100%;
-  background-color: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.08);
   margin-bottom: 16px;
 }
 
+/* ── Tools text ── */
 .skill-tools {
   font-size: 13px;
   color: var(--text-main);
-  opacity: 0.8;
+  opacity: 0.65;
   font-weight: 500;
+  line-height: 1.5;
 }
 
+/* ── Arrow badge ── */
 .skill-arrow {
   position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 32px;
-  height: 32px;
+  top: 20px;
+  right: 20px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background-color: rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.6);
+  transition: transform 0.3s ease;
 }
 
-/* Background Colors */
-.bg-pink { background-color: var(--skill-pink); }
-.bg-purple { background-color: var(--skill-purple); }
-.bg-yellow { background-color: var(--skill-yellow); }
-.bg-green { background-color: var(--skill-green); }
-.bg-cyan { background-color: var(--skill-cyan); }
-.bg-red { background-color: var(--skill-red); }
+.skill-card:hover .skill-arrow {
+  transform: rotate(45deg) scale(1.1);
+}
 
-@media (max-width: 640px) {
+/* ── Background Colors — enriched ── */
+.bg-pink   { background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); }
+.bg-purple { background: linear-gradient(135deg, #f3e8ff 0%, #ede9fe 100%); }
+.bg-yellow { background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%); }
+.bg-green  { background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); }
+.bg-cyan   { background: linear-gradient(135deg, #cffafe 0%, #a5f3fc 100%); }
+.bg-red    { background: linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%); }
+
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
   .skills-grid {
     grid-template-columns: 1fr;
   }

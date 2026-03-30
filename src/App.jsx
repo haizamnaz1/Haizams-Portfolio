@@ -23,8 +23,9 @@ function App() {
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Mouse Glow Handler for cards
+    // Performance-optimized Mouse Handler
     const handleMouseMove = (e) => {
+      // Mouse Glow Handler for cards
       const cards = document.querySelectorAll('.hover-glow');
       cards.forEach(card => {
         const rect = card.getBoundingClientRect();
@@ -33,8 +34,21 @@ function App() {
       });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    // Scroll Progress logic
+    const handleScrollProgress = () => {
+      const bar = document.querySelector('.scroll-progress-bar');
+      if (bar) {
+        const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const width = (window.scrollY / (totalScroll || 1)) * 100;
+        bar.style.width = `${width}%`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScrollProgress, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
     return () => {
+      window.removeEventListener('scroll', handleScrollProgress);
       window.removeEventListener('mousemove', handleMouseMove);
       observer.disconnect();
     };
@@ -42,15 +56,25 @@ function App() {
 
   return (
     <div className="app">
-      <div className="mesh-background" aria-hidden="true" />
+      <div className="scroll-progress-bar" />
+      <div className="mesh-background" aria-hidden="true">
+        <div className="blob-1" />
+        <div className="blob-2" />
+        <div className="blob-3" />
+        <div className="blob-4" />
+      </div>
       <FloatingNav />
       <Navbar />
-      <div className="reveal"><Hero /></div>
-      <div className="reveal"><About /></div>
-      <div className="reveal"><Experience /></div>
-      <div className="reveal"><Skills /></div>
-      <div className="reveal"><Projects /></div>
-      <div className="reveal"><Contact /></div>
+      
+      <main>
+        <div className="reveal" style={{ transitionDelay: '0.1s' }}><Hero /></div>
+        <div className="reveal" style={{ transitionDelay: '0.2s' }}><About /></div>
+        <div className="reveal" style={{ transitionDelay: '0.3s' }}><Experience /></div>
+        <div className="reveal" style={{ transitionDelay: '0.4s' }}><Skills /></div>
+        <div className="reveal" style={{ transitionDelay: '0.5s' }}><Projects /></div>
+        <div className="reveal" style={{ transitionDelay: '0.6s' }}><Contact /></div>
+      </main>
+      
       <Footer />
     </div>
   )

@@ -1,72 +1,206 @@
+/* ── Experience Timeline ── */
 .experience-list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  max-width: 800px;
+  gap: 0;
+  position: relative;
+  padding-left: 48px;
 }
 
+/* vertical line */
+.experience-list::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-purple), var(--accent-cyan));
+  border-radius: 2px;
+}
+
+/* ── Each timeline item ── */
 .experience-item {
-  background-color: var(--bg-card);
-  border-radius: 12px;
-  padding: 32px;
-  border: 1px solid #e5e5e5;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-  transition: transform 0.3s ease;
+  position: relative;
+  padding: 0 0 56px 32px;
 }
 
-.experience-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+.experience-item:last-child {
+  padding-bottom: 0;
 }
 
+/* dot on the line */
+.experience-item::before {
+  content: '';
+  position: absolute;
+  left: -41px;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--accent-purple);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
+  transition: box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+.experience-item:last-child::before {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.12);
+}
+
+.experience-item:hover::before {
+  box-shadow: 0 0 0 8px rgba(139, 92, 246, 0.15);
+}
+
+/* ── Card ── */
+.exp-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  transition: none;
+}
+
+.exp-card:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* placeholder card slight difference */
+.experience-item:last-child .exp-card {
+  border: none;
+}
+
+.experience-item:last-child .exp-card:hover {
+  border: none;
+  box-shadow: none;
+}
+
+/* ── Header ── */
 .experience-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 24px;
-  border-bottom: 1px solid #f0f0f0;
-  padding-bottom: 16px;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.exp-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .experience-title {
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 28px;
+  font-weight: 900;
   color: var(--text-main);
-  margin-bottom: 4px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
 }
 
 .experience-company {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-purple);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+}
+
+.experience-item:last-child .experience-company {
+  color: var(--accent-cyan);
 }
 
 .experience-date {
+  font-size: 13px;
   font-weight: 600;
-  color: var(--accent-purple);
-  background-color: var(--skill-purple);
+  color: var(--text-muted);
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.15);
   padding: 6px 16px;
   border-radius: 20px;
-  font-size: 13px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
+.experience-item:last-child .experience-date {
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+/* ── Bullets ── */
 .experience-bullets {
-  padding-left: 16px;
-  list-style-type: disc;
-  color: var(--text-muted);
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .experience-bullets li {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  padding-left: 20px;
+  position: relative;
+}
+
+.experience-bullets li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-purple);
+  font-size: 12px;
+  top: 2px;
+}
+
+.experience-item:last-child .experience-bullets li::before {
+  color: var(--accent-cyan);
 }
 
 @media (max-width: 600px) {
+  .experience-list {
+    padding-left: 36px;
+  }
   .experience-header {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
+}
+
+/* ── Certificate Button ── */
+.cert-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.cert-btn:hover {
+  background: var(--accent-purple);
+  color: #fff;
+  border-color: var(--accent-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+}
+
+.cert-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.cert-btn:hover svg {
+  transform: translateY(2px);
 }

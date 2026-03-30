@@ -33,22 +33,51 @@ const About = () => {
           </div>
           
           <div className="about-cards">
-            <div className="card education-card hover-glow">
-              <div className="card-header">
-                <h3>Education</h3>
-              </div>
-              <div className="card-body">
-                <h4>ICBT CAMPUS - KANDY</h4>
-                <ul style={{marginBottom: '16px'}}>
-                  <li>Currently pursuing software engineering degree.</li>
-                  <li>Successfully completed HND in software engineering. (2023-2025)</li>
-                  <li>Certificate in D-TEC (2022)</li>
-                </ul>
-                <h4>TRINITY COLLEGE - KANDY</h4>
-                <ul>
-                  <li>Successfully completed A/L's</li>
-                  <li>Successfully completed O/L's</li>
-                </ul>
+            <div className="edu-timeline">
+              <h3 className="edu-timeline-heading">Education</h3>
+
+              <div className="edu-list">
+
+                <div className="edu-item">
+                  <div className="edu-dot" />
+                  <div className="edu-content">
+                    <div className="edu-year">2023 – Present</div>
+                    <div className="edu-school">ICBT Campus — Kandy</div>
+                    <div className="edu-degree">BSc (Hons) Software Engineering</div>
+                    <p className="edu-note">Currently in progress</p>
+                  </div>
+                </div>
+
+                <div className="edu-item">
+                  <div className="edu-dot" />
+                  <div className="edu-content">
+                    <div className="edu-year">2023 – 2025</div>
+                    <div className="edu-school">ICBT Campus — Kandy</div>
+                    <div className="edu-degree">HND in Software Engineering</div>
+                    <p className="edu-note">Completed</p>
+                  </div>
+                </div>
+
+                <div className="edu-item">
+                  <div className="edu-dot" />
+                  <div className="edu-content">
+                    <div className="edu-year">2022</div>
+                    <div className="edu-school">ICBT Campus — Kandy</div>
+                    <div className="edu-degree">Certificate in D-TEC</div>
+                    <p className="edu-note">Completed</p>
+                  </div>
+                </div>
+
+                <div className="edu-item">
+                  <div className="edu-dot edu-dot--muted" />
+                  <div className="edu-content">
+                    <div className="edu-year">Pre-2022</div>
+                    <div className="edu-school">Trinity College — Kandy</div>
+                    <div className="edu-degree">A/Levels &amp; O/Levels</div>
+                    <p className="edu-note">Completed</p>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>

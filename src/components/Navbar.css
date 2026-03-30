@@ -1,10 +1,7 @@
 .navbar {
-  border-bottom: 1px solid #f0f0f0;
-  padding: 24px 0;
-  background-color: var(--bg-main);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 14px 0;
+  background: transparent;
 }
 
 .navbar-container {

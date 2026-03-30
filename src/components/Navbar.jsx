@@ -9,7 +9,7 @@ const Navbar = () => {
           HAIZAM
         </div>
         <div className="navbar-links">
-          <a href="#contact" className="nav-button">CONTACT</a>
+          <a href="#contact" className="nav-button magnetic-btn">CONTACT</a>
         </div>
       </div>
     </nav>

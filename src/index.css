@@ -76,7 +76,7 @@ button {
   padding: 100px 0;
 }
 
-/* Premium Animations & Patterns */
+/* Sophisticated & Subtle Animations */
 
 .mesh-background {
   position: fixed;
@@ -85,31 +85,92 @@ button {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-color: #ffffff;
+  background-color: #fafafa;
   overflow: hidden;
 }
 
-.mesh-background::after {
-  content: '';
+/* Blob 1 — Purple top-left */
+.mesh-background .blob-1 {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(255, 51, 102, 0.03) 0%, transparent 60%);
-  animation: meshDrift 20s infinite alternate ease-in-out;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.32) 0%, transparent 70%);
+  filter: blur(90px);
+  top: -10%;
+  left: -10%;
+  animation: blobDrift1 18s ease-in-out infinite;
 }
 
-@keyframes meshDrift {
-  0% { transform: scale(1) translate(0, 0); }
-  50% { transform: scale(1.1) translate(2%, 2%); }
-  100% { transform: scale(1) translate(-2%, -2%); }
+/* Blob 2 — Cyan bottom-right */
+.mesh-background .blob-2 {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.28) 0%, transparent 70%);
+  filter: blur(100px);
+  bottom: -10%;
+  right: -10%;
+  animation: blobDrift2 22s ease-in-out infinite;
 }
 
-/* Scroll Reveal */
+/* Blob 3 — Pink/Red center */
+.mesh-background .blob-3 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 51, 102, 0.22) 0%, transparent 70%);
+  filter: blur(85px);
+  top: 30%;
+  left: 40%;
+  animation: blobDrift3 26s ease-in-out infinite;
+}
+
+/* Blob 4 — Yellow bottom-left */
+.mesh-background .blob-4 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.22) 0%, transparent 70%);
+  filter: blur(80px);
+  bottom: 10%;
+  left: 10%;
+  animation: blobDrift4 20s ease-in-out infinite;
+}
+
+@keyframes blobDrift1 {
+  0%   { transform: translate(0px,   0px)   scale(1);    }
+  25%  { transform: translate(80px,  60px)  scale(1.08); }
+  50%  { transform: translate(40px,  130px) scale(1.04); }
+  75%  { transform: translate(-40px, 70px)  scale(1.1);  }
+  100% { transform: translate(0px,   0px)   scale(1);    }
+}
+@keyframes blobDrift2 {
+  0%   { transform: translate(0px,   0px)    scale(1);    }
+  25%  { transform: translate(-70px, -50px)  scale(1.06); }
+  50%  { transform: translate(-120px,-110px) scale(1.1);  }
+  75%  { transform: translate(-60px, -160px) scale(1.04); }
+  100% { transform: translate(0px,   0px)    scale(1);    }
+}
+@keyframes blobDrift3 {
+  0%   { transform: translate(0px,   0px)   scale(1);    }
+  25%  { transform: translate(-60px, 50px)  scale(0.95); }
+  50%  { transform: translate(-100px,-40px) scale(1.05); }
+  75%  { transform: translate(50px,  -70px) scale(0.98); }
+  100% { transform: translate(0px,   0px)   scale(1);    }
+}
+@keyframes blobDrift4 {
+  0%   { transform: translate(0px,  0px)   scale(1);    }
+  25%  { transform: translate(60px, -50px) scale(1.06); }
+  50%  { transform: translate(110px,-20px) scale(1.1);  }
+  75%  { transform: translate(70px,  60px) scale(1.04); }
+  100% { transform: translate(0px,  0px)   scale(1);    }
+}
+
+/* Elegant Scroll Reveal */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -121,20 +182,25 @@ button {
   transform: translateY(0);
 }
 
-/* Subtle Floating Animation */
+/* Subtle Floating */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
-.float-slow { animation: float 6s infinite ease-in-out; }
-.float-mid { animation: float 4s infinite ease-in-out; }
+.float-slow { animation: float 7s infinite ease-in-out; }
+.float-mid { animation: float 5s infinite ease-in-out; }
 
-/* Interactive Hover Glow utility */
+/* Refined Hover Shadow & Lift */
 .hover-glow {
   position: relative;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hover-glow:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
 }
 
 .hover-glow::before {
@@ -142,16 +208,31 @@ button {
   position: absolute;
   top: var(--y, 0);
   left: var(--x, 0);
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s;
 }
 
 .hover-glow:hover::before {
   opacity: 1;
+}
+
+/* Magnetic Button (Subtle) */
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.magnetic-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Magnetic Logo (Subtle) */
+.navbar-logo:hover {
+  color: var(--accent-red);
+  transition: color 0.3s ease;
 }
 

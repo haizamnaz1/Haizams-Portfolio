@@ -35,8 +35,8 @@ const Hero = () => {
         </div>
 
         <div className="hero-cta">
-          <a href="#projects" className="btn-primary" style={{display: 'inline-block', textDecoration: 'none'}}>VIEW MY WORK ↗</a>
-          <a href={cvImage} download="Haizam_Nazreen_CV.png" className="btn-secondary" style={{display: 'inline-block', textDecoration: 'none'}}>DOWNLOAD CV</a>
+          <a href="#projects" className="btn-primary magnetic-btn" style={{display: 'inline-block', textDecoration: 'none'}}>VIEW MY WORK ↗</a>
+          <a href={cvImage} download="Haizam_Nazreen_CV.png" className="btn-secondary magnetic-btn" style={{display: 'inline-block', textDecoration: 'none'}}>DOWNLOAD CV</a>
         </div>
       </div>
     </section>
