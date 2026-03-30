@@ -1,4 +1,5 @@
 import React from 'react';
+import Magnetic from './Magnetic';
 import './Footer.css';
 
 const Footer = () => {
