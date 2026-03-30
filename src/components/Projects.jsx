@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Projects.css';
 
 import mirasImg from '../assets/project showcase/miras hero.png';
@@ -60,18 +61,61 @@ const Projects = () => {
     }
   ];
 
+  const gridVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: [0.165, 0.84, 0.44, 1] }
+    }
+  };
+
   return (
     <section id="projects" className="projects section-padding">
       <div className="container">
-        <span className="section-badge">MY WORK</span>
+        <motion.span 
+          className="section-badge"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          MY WORK
+        </motion.span>
         
-        <h2 className="section-title">
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
           Featured <span className="text-purple">Work</span>
-        </h2>
+        </motion.h2>
         
-        <div className="projects-grid">
+        <motion.div 
+          className="projects-grid"
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {projectsData.map((project, index) => (
-            <div key={index} className="project-card hover-glow">
+            <motion.div 
+              key={index} 
+              className="project-card hover-glow"
+              variants={cardVariants}
+              whileHover={{ y: -10 }}
+            >
               <img src={project.image} alt={project.title} className="project-image" />
               
               <div className="project-overlay">
@@ -94,9 +138,13 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-          <div className="project-card more-card hover-glow">
+          <motion.div 
+            className="project-card more-card hover-glow" 
+            variants={cardVariants}
+            whileHover={{ scale: 1.02 }}
+          >
             <div className="more-card-content">
               <h3>Many more to come!</h3>
               <p>I'm continually working on new ideas, studying, and experimenting.</p>
@@ -106,8 +154,8 @@ const Projects = () => {
                 <span className="dot"></span>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

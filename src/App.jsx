@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
 import './App.css'
 import Navbar from './components/Navbar'
 import FloatingNav from './components/FloatingNav'
@@ -11,18 +12,14 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 function App() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   useEffect(() => {
-    // Reveal Observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
     // Performance-optimized Mouse Handler
     const handleMouseMove = (e) => {
       // Mouse Glow Handler for cards
@@ -34,29 +31,19 @@ function App() {
       });
     };
 
-    // Scroll Progress logic
-    const handleScrollProgress = () => {
-      const bar = document.querySelector('.scroll-progress-bar');
-      if (bar) {
-        const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-        const width = (window.scrollY / (totalScroll || 1)) * 100;
-        bar.style.width = `${width}%`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScrollProgress, { passive: true });
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScrollProgress);
       window.removeEventListener('mousemove', handleMouseMove);
-      observer.disconnect();
     };
   }, []);
 
   return (
     <div className="app">
-      <div className="scroll-progress-bar" />
+      <motion.div 
+        className="scroll-progress-bar" 
+        style={{ scaleX, transformOrigin: "0%" }} 
+      />
       <div className="mesh-background" aria-hidden="true">
         <div className="blob-1" />
         <div className="blob-2" />
@@ -66,14 +53,18 @@ function App() {
       <FloatingNav />
       <Navbar />
       
-      <main>
-        <div className="reveal" style={{ transitionDelay: '0.1s' }}><Hero /></div>
-        <div className="reveal" style={{ transitionDelay: '0.2s' }}><About /></div>
-        <div className="reveal" style={{ transitionDelay: '0.3s' }}><Experience /></div>
-        <div className="reveal" style={{ transitionDelay: '0.4s' }}><Skills /></div>
-        <div className="reveal" style={{ transitionDelay: '0.5s' }}><Projects /></div>
-        <div className="reveal" style={{ transitionDelay: '0.6s' }}><Contact /></div>
-      </main>
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Contact />
+      </motion.main>
       
       <Footer />
     </div>

@@ -5,9 +5,9 @@
   height: 4px;
   background: linear-gradient(to right, #8b5cf6, #ff3366, #00d4ff);
   z-index: 9999;
-  width: 0%;
+  width: 100%;
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-  transition: width 0.1s ease-out;
+  transform-origin: 0%;
 }
 
 

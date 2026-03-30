@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Experience.css';
 
 const Experience = () => {
@@ -25,18 +26,56 @@ const Experience = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.7, ease: [0.165, 0.84, 0.44, 1] }
+    }
+  };
+
   return (
     <section id="experience" className="experience section-padding">
       <div className="container">
-        <span className="section-badge">EXPERIENCE</span>
+        <motion.span 
+          className="section-badge"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          EXPERIENCE
+        </motion.span>
         
-        <h2 className="section-title">
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
           My Work <span className="text-cyan">Experience</span>
-        </h2>
+        </motion.h2>
         
-        <div className="experience-list">
+        <motion.div 
+          className="experience-list"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {experiences.map((exp, index) => (
-            <div key={index} className="experience-item">
+            <motion.div key={index} className="experience-item" variants={itemVariants}>
               <div className="exp-card">
                 <div className="experience-header">
                   <div className="exp-title-block">
@@ -67,9 +106,9 @@ const Experience = () => {
                   </a>
                 )}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
